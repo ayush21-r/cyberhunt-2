@@ -1,0 +1,14 @@
+[
+  {
+    "id": "AGENT_ALPHA",
+    "password": "secret123"
+  },
+  {
+    "id": "AGENT_ZERO",
+    "password": "admin456"
+  },
+  {
+    "id": "TESTUSER",
+    "password": "password123"
+  }
+]

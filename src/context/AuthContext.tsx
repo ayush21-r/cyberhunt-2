@@ -20,42 +20,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock database for authentication fallback
-const MOCK_USERS: Record<string, Omit<User, 'id'>> = {
-  'AGENT_ALPHA': {
-    name: 'Sarah Connor',
-    rank: '04',
-    score: 1450,
-    team: 'NET_RUNNERS',
-    status: 'ACTIVE',
-    clearanceLevel: 4,
-  },
-  'AGENT_ZERO': {
-    name: 'David Lightman',
-    rank: '01',
-    score: 1980,
-    team: 'WAR_GAMES',
-    status: 'SECURE',
-    clearanceLevel: 5,
-  },
-  'AGENT_V': {
-    name: 'Valerie Hudson',
-    rank: '12',
-    score: 870,
-    team: 'GRID_PHANTOMS',
-    status: 'ACTIVE',
-    clearanceLevel: 3,
-  },
-  'AGENT_NEO': {
-    name: 'Thomas Anderson',
-    rank: '02',
-    score: 1850,
-    team: 'THE_MATRIX',
-    status: 'COMPROMISED',
-    clearanceLevel: 5,
-  }
-};
-
+// Authentication fallback removed - now using real backend
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [bootComplete, setBootComplete] = useState<boolean>(() => {
     const saved = sessionStorage.getItem('cyber_boot_complete');
@@ -93,28 +58,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const login = async (agentId: string, accessKey: string): Promise<boolean> => {
-    // 1. Fire service API call (placeholder only)
-    await authenticateAgent(agentId, accessKey);
-
-    // 2. Perform client-side mock authentication
-    const normalizedId = agentId.toUpperCase().trim();
-    const mockUser = MOCK_USERS[normalizedId];
-
-    if (mockUser && accessKey.length >= 6) {
-      setUser({
-        id: normalizedId,
-        ...mockUser,
-      });
-      addToast(`ACCESS AUTHENTICATED: AGENT ${normalizedId} LINK ESTABLISHED`, 'success');
-      return true;
+    try {
+      const response = await authenticateAgent(agentId, accessKey);
+      
+      if (response && response.user) {
+        setUser(response.user);
+        // Store the JWT token for future requests if needed
+        if (response.token) {
+          localStorage.setItem('cyber_jwt_token', response.token);
+        }
+        addToast(`ACCESS AUTHENTICATED: AGENT ${response.user.id} LINK ESTABLISHED`, 'success');
+        return true;
+      }
+    } catch (error: any) {
+      addToast(error.message || 'AUTHENTICATION FAILURE: SECURITY HASH INVALID', 'error');
     }
-
-    addToast('AUTHENTICATION FAILURE: SECURITY HASH INVALID', 'error');
     return false;
   };
 
   const logout = async () => {
     await terminateSession();
+    localStorage.removeItem('cyber_jwt_token');
     const oldId = user?.id;
     setUser(null);
     if (oldId) {

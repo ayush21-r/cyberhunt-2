@@ -1,26 +1,61 @@
 import { Router, Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
+import fs from 'fs';
+import path from 'path';
 
 const router = Router();
+const JWT_SECRET = process.env.JWT_SECRET || 'cyberhunt_super_secret_key_123!';
 
-/**
- * POST /api/v1/auth/login
- * Placeholder agent login credential authentication endpoint.
- */
-router.post('/login', (_req: Request, res: Response) => {
-  res.json({
-    success: true,
-    message: 'Coming Soon'
-  });
+// Load users from users.json
+const usersFilePath = path.join(__dirname, '../../users.json');
+
+router.post('/login', (req: Request, res: Response) => {
+  try {
+    const { agentId, accessKey } = req.body;
+    
+    if (!agentId || !accessKey) {
+      return res.status(400).json({ success: false, message: 'Agent ID and Access Key are required' });
+    }
+
+    const usersData = fs.readFileSync(usersFilePath, 'utf-8');
+    const users = JSON.parse(usersData);
+
+    console.log('Login attempt:', { agentId, accessKey });
+    const user = users.find((u: any) => 
+      u.id.toLowerCase() === agentId.trim().toLowerCase() && u.password === accessKey
+    );
+    console.log('Found user:', user);
+
+    if (!user) {
+      return res.status(401).json({ success: false, message: 'Invalid agent ID or access key' });
+    }
+
+    // Create token (user only has id, so we just sign that)
+    const token = jwt.sign(
+      { id: user.id },
+      JWT_SECRET,
+      { expiresIn: '8h' }
+    );
+
+    // Remove password before sending user data
+    const { password: _, ...safeUser } = user;
+
+    res.json({
+      success: true,
+      token,
+      user: safeUser,
+      message: 'AUTHENTICATION SUCCESSFUL'
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ success: false, message: 'Internal server error during authentication' });
+  }
 });
 
-/**
- * POST /api/v1/auth/logout
- * Placeholder secure connection termination endpoint.
- */
 router.post('/logout', (_req: Request, res: Response) => {
   res.json({
     success: true,
-    message: 'Coming Soon'
+    message: 'LOGOUT SUCCESSFUL'
   });
 });
 

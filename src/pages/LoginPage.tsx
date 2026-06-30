@@ -12,7 +12,7 @@ import { ROUTES } from '../lib/constants';
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login, triggerSecurityAlert } = useAuth();
-  
+
   const [agentId, setAgentId] = useState<string>('');
   const [accessKey, setAccessKey] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -22,12 +22,16 @@ export const LoginPage: React.FC = () => {
 
   const handleAutofill = (id: string) => {
     setAgentId(id);
-    setAccessKey('SECURITY_PASS_77');
+    if (id === 'AGENT_ALPHA') setAccessKey('secret123');
+    else if (id === 'AGENT_ZERO') setAccessKey('admin456');
+    else if (id === 'AGENT_NEO') setAccessKey('password123'); // Just a fallback for neo
+    else setAccessKey('SECURITY_PASS_77');
     setErrorMsg('');
   };
 
   const handleAuthenticate = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!agentId.trim()) {
       setErrorMsg('AGENT ID REQUIRED');
       return;
@@ -59,7 +63,7 @@ export const LoginPage: React.FC = () => {
 
     try {
       const success = await login(agentId, accessKey);
-      
+
       setAuthProgress(100);
       if (success) {
         setStatusText('AUTHENTICATION GRANTED. ACCESS INITIATING...');
@@ -85,11 +89,11 @@ export const LoginPage: React.FC = () => {
   return (
     <AuthLayout>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center w-full max-w-4xl font-jetbrains">
-        
+
         {/* Link telemetry status sidebar */}
         <div className="md:col-span-2 hidden md:flex flex-col h-full self-stretch justify-between text-left border border-cyber-border/20 bg-cyber-sec/20 p-5 clip-corners relative select-none">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-cyber-cyan/30" />
-          
+
           <div className="flex flex-col gap-4">
             <span className="font-sharetech text-xs text-cyber-cyan font-bold tracking-widest uppercase flex items-center gap-1.5 border-b border-cyber-cyan/15 pb-2">
               <Server size={14} className="animate-pulse" aria-hidden="true" /> LINK STATUS CORE
@@ -127,7 +131,7 @@ export const LoginPage: React.FC = () => {
             variant={errorMsg ? 'red' : 'cyan'}
           >
             {loading ? (
-              <div 
+              <div
                 className="py-12 px-2 flex flex-col gap-6 text-center font-sharetech select-none"
                 role="status"
                 aria-live="polite"
@@ -195,7 +199,7 @@ export const LoginPage: React.FC = () => {
                 />
 
                 {errorMsg && !errorMsg.includes('AGENT') && !errorMsg.includes('KEY') && (
-                  <div 
+                  <div
                     className="p-3 border border-cyber-red bg-cyber-red/10 text-cyber-red text-xs font-sharetech clip-corners flex items-center gap-2 select-none"
                     role="alert"
                   >

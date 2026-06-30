@@ -30,3 +30,17 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+
+npm install -D @types/jsonwebtoken
+for database free login 
+
+## Test Credentials
+
+For local testing, the following dummy accounts have been added:
+
+| Agent ID     | Access Key   | Name           | Team             |
+|--------------|--------------|----------------|------------------|
+| AGENT_ALPHA  | secret123    | Sarah Connor   | NET_RUNNERS      |
+| AGENT_ZERO   | admin456     | David Lightman | WAR_GAMES        |
+| TESTUSER     | password123  | John Doe       | CYBER_RECRUITS   | 
