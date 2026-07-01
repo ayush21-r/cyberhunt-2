@@ -10,5 +10,49 @@
   {
     "id": "TESTUSER",
     "password": "password123"
+  },
+  {
+    "id": "AGENT_NEO",
+    "password": "password123"
+  },
+  {
+    "id": "CYBER_1",
+    "password": "pass_cyber_1"
+  },
+  {
+    "id": "CYBER_2",
+    "password": "pass_cyber_2"
+  },
+  {
+    "id": "CYBER_3",
+    "password": "pass_cyber_3"
+  },
+  {
+    "id": "CYBER_4",
+    "password": "pass_cyber_4"
+  },
+  {
+    "id": "CYBER_5",
+    "password": "pass_cyber_5"
+  },
+  {
+    "id": "CYBER_6",
+    "password": "pass_cyber_6"
+  },
+  {
+    "id": "CYBER_7",
+    "password": "pass_cyber_7"
+  },
+  {
+    "id": "CYBER_8",
+    "password": "pass_cyber_8"
+  },
+  {
+    "id": "CYBER_9",
+    "password": "pass_cyber_9"
+  },
+  {
+    "id": "CYBER_10",
+    "password": "pass_cyber_10"
   }
 ]
