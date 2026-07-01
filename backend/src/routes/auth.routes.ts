@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'cyberhunt_super_secret_key_123!';
 // Load users from users.json
 const usersFilePath = path.join(__dirname, '../../users.json');
 
-router.post('/login', (req: Request, res: Response) => {
+router.post('/login', (req: Request, res: Response): void => {
   try {
     const { agentId, accessKey } = req.body;
     
@@ -52,7 +52,7 @@ router.post('/login', (req: Request, res: Response) => {
   }
 });
 
-router.post('/logout', (_req: Request, res: Response) => {
+router.post('/logout', (_req: Request, res: Response): void => {
   res.json({
     success: true,
     message: 'LOGOUT SUCCESSFUL'

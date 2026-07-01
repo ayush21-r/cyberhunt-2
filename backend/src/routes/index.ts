@@ -10,7 +10,7 @@ const router = Router();
  * GET /api/v1/health
  * Returns active link status parameters.
  */
-router.get('/health', (_req: Request, res: Response) => {
+router.get('/health', (_req: Request, res: Response): void => {
   res.json({
     status: 'OK',
     project: 'TechAlfa Cyber Hunt API',

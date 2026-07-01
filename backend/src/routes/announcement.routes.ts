@@ -6,7 +6,7 @@ const router = Router();
  * GET /api/v1/announcements
  * Placeholder endpoint to fetch global broadcast status alerts.
  */
-router.get('/', (_req: Request, res: Response) => {
+router.get('/', (_req: Request, res: Response): void => {
   res.json({
     success: true,
     message: 'Coming Soon'
