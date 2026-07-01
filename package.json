@@ -12,14 +12,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
     "framer-motion": "^12.42.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^1.21.0",
+    "morgan": "^1.10.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.0"
+    "react-router-dom": "^7.18.0",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
