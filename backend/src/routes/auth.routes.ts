@@ -1,13 +1,9 @@
 import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import fs from 'fs';
-import path from 'path';
+import users from '../../users.json';
 
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'cyberhunt_super_secret_key_123!';
-
-// Load users from users.json
-const usersFilePath = path.join(__dirname, '../../users.json');
 
 router.post('/login', (req: Request, res: Response): void => {
   try {
@@ -16,9 +12,6 @@ router.post('/login', (req: Request, res: Response): void => {
     if (!agentId || !accessKey) {
       res.status(400).json({ success: false, message: 'Agent ID and Access Key are required' });
     } else {
-      const usersData = fs.readFileSync(usersFilePath, 'utf-8');
-      const users = JSON.parse(usersData);
-
       console.log('Login attempt:', { agentId, accessKey });
       const user = users.find((u: any) => 
         u.id.toLowerCase() === agentId.trim().toLowerCase() && u.password === accessKey
