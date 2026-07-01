@@ -14,7 +14,8 @@ router.post('/login', (req: Request, res: Response) => {
     const { agentId, accessKey } = req.body;
     
     if (!agentId || !accessKey) {
-      return res.status(400).json({ success: false, message: 'Agent ID and Access Key are required' });
+      res.status(400).json({ success: false, message: 'Agent ID and Access Key are required' });
+      return;
     }
 
     const usersData = fs.readFileSync(usersFilePath, 'utf-8');
@@ -27,7 +28,8 @@ router.post('/login', (req: Request, res: Response) => {
     console.log('Found user:', user);
 
     if (!user) {
-      return res.status(401).json({ success: false, message: 'Invalid agent ID or access key' });
+      res.status(401).json({ success: false, message: 'Invalid agent ID or access key' });
+      return;
     }
 
     // Create token (user only has id, so we just sign that)
