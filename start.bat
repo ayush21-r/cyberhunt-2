@@ -16,8 +16,16 @@ if not exist node_modules (
     call npm install
 )
 
+if not exist backend\node_modules (
+    echo  [WARNING] REQUIRED BACKEND PACKAGES MISSING!
+    echo  [SYSTEM LOG] INSTALLING BACKEND DEPENDENCIES. STANDBY...
+    pushd backend
+    call npm install
+    popd
+)
+
 echo.
 echo  [SYSTEM LOG] SECURE TERMINAL LAUNCHING...
 echo.
-npm run dev
+npm run dev:all
 pause

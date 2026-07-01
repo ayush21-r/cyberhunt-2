@@ -1,6 +1,6 @@
 import { API_ENDPOINTS } from '../lib/constants';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
 export async function authenticateAgent(agentId: string, accessKey: string): Promise<any> {
   try {
