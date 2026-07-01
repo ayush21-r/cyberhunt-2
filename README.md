@@ -1,5 +1,8 @@
 # React + TypeScript + Vite
 
+
+ To run this simply run this command in terminal : npm run dev:all
+ 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
@@ -34,6 +37,8 @@ See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rule
 
 npm install -D @types/jsonwebtoken
 for database free login 
+
+npm install concurrently --save-dev
 
 ## Test Credentials
 
