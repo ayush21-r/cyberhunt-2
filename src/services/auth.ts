@@ -1,4 +1,4 @@
-import { API_ENDPOINTS } from '../lib/constants';
+
 
 // Simulated database of users so the app works purely on the frontend (Netlify friendly)
 const MOCK_USERS = [
