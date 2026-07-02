@@ -1,40 +1,50 @@
 import { API_ENDPOINTS } from '../lib/constants';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+// Simulated database of users so the app works purely on the frontend (Netlify friendly)
+const MOCK_USERS = [
+  { id: "AGENT_ALPHA", password: "secret123" },
+  { id: "AGENT_ZERO", password: "admin456" },
+  { id: "TESTUSER", password: "password123" },
+  { id: "AGENT_NEO", password: "password123" },
+  { id: "CYBER_1", password: "pass_cyber_1" },
+  { id: "CYBER_2", password: "pass_cyber_2" },
+  { id: "CYBER_3", password: "pass_cyber_3" },
+  { id: "CYBER_4", password: "pass_cyber_4" },
+  { id: "CYBER_5", password: "pass_cyber_5" },
+  { id: "CYBER_6", password: "pass_cyber_6" },
+  { id: "CYBER_7", password: "pass_cyber_7" },
+  { id: "CYBER_8", password: "pass_cyber_8" },
+  { id: "CYBER_9", password: "pass_cyber_9" },
+  { id: "CYBER_10", password: "pass_cyber_10" }
+];
 
 export async function authenticateAgent(agentId: string, accessKey: string): Promise<any> {
-  try {
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.LOGIN}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ agentId, accessKey })
-    });
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 800));
 
-    const data = await response.json();
-    
-    if (response.ok && data.success) {
-      return data;
-    } else {
-      throw new Error(data.message || 'Authentication failed');
-    }
-  } catch (error: any) {
-    console.error('Login request failed:', error);
-    throw error;
+  const user = MOCK_USERS.find(u => 
+    u.id.toLowerCase() === agentId.trim().toLowerCase() && u.password === accessKey
+  );
+
+  if (user) {
+    // Return a fake token and the user object
+    return {
+      success: true,
+      token: "fake-jwt-token-for-netlify-demo",
+      user: { id: user.id },
+      message: 'AUTHENTICATION SUCCESSFUL'
+    };
+  } else {
+    throw new Error('Invalid agent ID or access key');
   }
 }
 
 export async function terminateSession(): Promise<void> {
-  try {
-    await fetch(`${API_BASE_URL}${API_ENDPOINTS.LOGOUT}`, { method: 'POST' });
-  } catch (error) {
-    console.error('Logout request failed:', error);
-  }
+  // Simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 400));
   return Promise.resolve();
 }
 
 export async function verifyActiveSession(): Promise<any> {
-  // Not heavily used without a verify route, but keeping signature
   return Promise.resolve(undefined);
 }
