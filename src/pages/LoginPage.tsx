@@ -20,14 +20,6 @@ export const LoginPage: React.FC = () => {
   const [statusText, setStatusText] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
 
-  const handleAutofill = (id: string) => {
-    setAgentId(id);
-    if (id === 'AGENT_ALPHA') setAccessKey('secret123');
-    else if (id === 'AGENT_ZERO') setAccessKey('admin456');
-    else if (id === 'AGENT_NEO') setAccessKey('password123'); // Just a fallback for neo
-    else setAccessKey('SECURITY_PASS_77');
-    setErrorMsg('');
-  };
 
   const handleAuthenticate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -144,42 +136,10 @@ export const LoginPage: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleAuthenticate} className="flex flex-col gap-5">
-                <div className="text-left mb-2 select-none border-b border-white/5 pb-3">
-                  <p className="text-xs text-white/60 leading-relaxed font-mono">
-                    VERIFY DECRYPTION CREDENTIALS. CLICK A DEMO PROFILE FOR AUTOFILL:
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2 font-sharetech">
-                    <button
-                      type="button"
-                      onClick={() => handleAutofill('AGENT_ALPHA')}
-                      className="text-[10px] text-cyber-cyan border border-cyber-cyan/35 hover:border-cyber-cyan hover:bg-cyber-cyan/10 px-2.5 py-1 clip-corners transition-all duration-150 cursor-pointer font-bold focus:outline-hidden focus:ring-1 focus:ring-cyber-cyan"
-                      aria-label="Autofill credentials for Agent Alpha"
-                    >
-                      AGENT ALPHA
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleAutofill('AGENT_ZERO')}
-                      className="text-[10px] text-cyber-cyan border border-cyber-cyan/35 hover:border-cyber-cyan hover:bg-cyber-cyan/10 px-2.5 py-1 clip-corners transition-all duration-150 cursor-pointer font-bold focus:outline-hidden focus:ring-1 focus:ring-cyber-cyan"
-                      aria-label="Autofill credentials for Agent Zero"
-                    >
-                      AGENT ZERO
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleAutofill('AGENT_NEO')}
-                      className="text-[10px] text-cyber-cyan border border-cyber-cyan/35 hover:border-cyber-cyan hover:bg-cyber-cyan/10 px-2.5 py-1 clip-corners transition-all duration-150 cursor-pointer font-bold focus:outline-hidden focus:ring-1 focus:ring-cyber-cyan"
-                      aria-label="Autofill credentials for Agent Neo"
-                    >
-                      AGENT NEO
-                    </button>
-                  </div>
-                </div>
-
                 <CyberInput
                   label="AGENT_ID"
                   id="agent-id"
-                  placeholder="e.g. AGENT_ALPHA"
+                  placeholder="e.g. agent@email.com"
                   value={agentId}
                   onChange={(e) => setAgentId(e.target.value)}
                   error={errorMsg && errorMsg.includes('AGENT') ? errorMsg : undefined}
