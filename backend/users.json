@@ -349,6 +349,42 @@
   },
   {
     "id": "test@example.com",
-    "password": "password123"
+    "password": "TEST-ALPHA"
+  },
+  {
+    "id": "beta@example.com",
+    "password": "TEST-BETA"
+  },
+  {
+    "id": "gamma@example.com",
+    "password": "TEST-GAMMA"
+  },
+  {
+    "id": "delta@example.com",
+    "password": "TEST-DELTA"
+  },
+  {
+    "id": "epsilon@example.com",
+    "password": "TEST-EPSILON"
+  },
+  {
+    "id": "zeta@example.com",
+    "password": "TEST-ZETA"
+  },
+  {
+    "id": "eta@example.com",
+    "password": "TEST-ETA"
+  },
+  {
+    "id": "theta@example.com",
+    "password": "TEST-THETA"
+  },
+  {
+    "id": "iota@example.com",
+    "password": "TEST-IOTA"
+  },
+  {
+    "id": "kappa@example.com",
+    "password": "TEST-KAPPA"
   }
 ]
