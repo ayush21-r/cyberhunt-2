@@ -13,7 +13,17 @@ export const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     // AI TRAP: Fake error for Level 5
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY='C'");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY='K'");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
+    
   }, []);
 
   // Safe fallback if user state is somehow bypass-loaded
@@ -73,21 +83,6 @@ export const DashboardPage: React.FC = () => {
             </div>
           </CyberCard>
 
-          {/* Download Challenge */}
-          <CyberCard title="MISSION RESOURCES" status="PENDING" variant="cyan">
-            <div className="flex flex-col gap-4 text-center">
-              <p className="text-xs text-[#f5f5f5]/70 font-mono">
-                ACQUIRE THE COMPRESSED CIPHER CORE DATA PACKAGE. DECRYPT IT 4 TIMES TO REVEAL THE FINAL ANSWER.
-              </p>
-              <div className="font-sharetech">
-                <a href="/Cipher_Core.rar" download className="block">
-                  <CyberButton variant="cyan" className="w-full">
-                    DOWNLOAD CIPHER_CORE.RAR
-                  </CyberButton>
-                </a>
-              </div>
-            </div>
-          </CyberCard>
         </div>
 
       </div>
