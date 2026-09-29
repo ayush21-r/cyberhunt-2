@@ -1,9 +1,9 @@
 @echo off
-title TECHALFA CYBER HUNT GATEWAY
+title HACK WITH INDIA // OPERATION HUNT GATEWAY
 color 0A
 cls
 echo =======================================================================
-echo          T E C H A L F A  //  C Y B E R  H U N T  //  G A T E W A Y
+echo     H A C K  W I T H  I N D I A  //  O P E R A T I O N  H U N T
 echo =======================================================================
 echo  [SYSTEM LOG] INITIALIZING CLASSIFIED OPERATIONS INTERFACE...
 echo  [SYSTEM LOG] PROTOCOL: CLIENT CONNECTION STACK v1.0

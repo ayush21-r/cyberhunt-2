@@ -33,11 +33,11 @@ export const LandingPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="flex flex-col select-none"
           >
-            <GlitchHeading tag="h1" variant="red" className="text-4xl sm:text-6xl md:text-8xl tracking-widest font-black leading-none mb-2">
-              TECHALFA
+            <GlitchHeading tag="h1" variant="red" className="text-3xl sm:text-5xl md:text-7xl tracking-widest font-black leading-none mb-2">
+              HACK WITH INDIA
             </GlitchHeading>
             <GlitchHeading tag="h1" variant="cyan" className="text-3xl sm:text-5xl md:text-7xl tracking-widest font-black leading-none">
-              CYBER HUNT
+              OPERATION HUNT
             </GlitchHeading>
           </motion.div>
 
@@ -65,11 +65,11 @@ export const LandingPage: React.FC = () => {
               <div className="flex flex-col gap-4 font-jetbrains text-sm text-[#f5f5f5]/80">
                 <div className="flex items-center gap-2 border-b border-cyber-cyan/15 pb-2 mb-2 font-sharetech text-cyber-cyan">
                   <Terminal size={16} aria-hidden="true" />
-                  <span className="font-bold uppercase tracking-widest text-xs">DIRECTIVE_ID: CLASSIFIED_CODENAME_CYBERHUNT</span>
+                  <span className="font-bold uppercase tracking-widest text-xs">DIRECTIVE_ID: CLASSIFIED_CODENAME_OPERATION_HUNT</span>
                 </div>
                 
                 <p className="leading-relaxed">
-                  Agents, a breach has been detected in the TechAlfa Secure Network. Sensitive blueprints and cryptography assets have been compartmentalized and scattered across the grid. Your objective is to hunt down these data fragments, solve encrypted nodes, and restore order.
+                  Agents, a breach has been detected in the Hack With India Secure Network. Sensitive blueprints and cryptography assets have been compartmentalized and scattered across the grid. Your objective is to hunt down these data fragments, solve encrypted nodes, and restore order.
                 </p>
                 
                 <p className="leading-relaxed hidden sm:block">

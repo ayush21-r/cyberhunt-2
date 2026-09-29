@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { Terminal, Shield, AlertTriangle, LogOut, Radio, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { APP_NAME, ROUTES } from '../lib/constants';
+import { APP_NAME, EVENT_NAME, ROUTES } from '../lib/constants';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -107,12 +107,12 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
           <div className="p-1.5 border border-cyber-cyan text-cyber-cyan glow-border-cyan clip-corners bg-cyber-sec/40">
             <Terminal size={18} aria-hidden="true" />
           </div>
-          <div className="text-left">
+          <div className="text-left flex items-center">
             <span className="font-orbitron font-bold text-cyber-red tracking-wider glow-red">
-              {APP_NAME.split(' ')[0]}
+              {APP_NAME}
             </span>
             <span className="ml-2 px-1.5 py-0.5 border border-cyber-red/30 bg-cyber-red/10 text-cyber-red text-xs font-jetbrains uppercase tracking-widest">
-              {APP_NAME.split(' ').slice(1).join(' ')}
+              {EVENT_NAME}
             </span>
           </div>
         </div>

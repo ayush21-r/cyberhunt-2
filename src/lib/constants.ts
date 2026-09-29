@@ -1,4 +1,5 @@
-export const APP_NAME = 'TECHALFA CYBER HUNT';
+export const APP_NAME = 'HACK WITH INDIA';
+export const EVENT_NAME = 'OPERATION HUNT';
 
 export const COLORS = {
   bg: '#050505',

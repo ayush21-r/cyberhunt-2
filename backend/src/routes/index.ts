@@ -13,7 +13,7 @@ const router = Router();
 router.get('/health', (_req: Request, res: Response): void => {
   res.json({
     status: 'OK',
-    project: 'TechAlfa Cyber Hunt API',
+    project: 'Hack With India - Operation Hunt API',
     version: '1.0.0',
     timestamp: new Date().toISOString(),
   });

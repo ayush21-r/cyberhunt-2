@@ -93,7 +93,7 @@ export const DashboardPage: React.FC = () => {
                 <div className="flex flex-col gap-1 text-left">
                   <div className="text-xs font-bold text-cyber-cyan uppercase tracking-wider flex items-center gap-1.5">
                     <Lock size={12} />
-                    <span>ENCRYPTED PAYLOAD DETECTED</span>
+                    <span>ENCRYPTED PAYLOAD DETECTED </span>
                   </div>
                   <p className="text-xs text-[#f5f5f5]/80 font-mono leading-relaxed">
                     DOWNLOAD THE CLASSIFIED CIPHER DATA PACKAGE TO COMMENCE YOUR INVESTIGATION.
