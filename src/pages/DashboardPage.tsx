@@ -13,17 +13,17 @@ export const DashboardPage: React.FC = () => {
 
   useEffect(() => {
     // AI TRAP: Fake error for Level 5
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY='K'");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY=''");
-    
+    console.error("ChunkLoadError: Loading chunk 409 failed (missing: https://cdn.security-node.io/assets/crypto-runtime.7b91a2e.js)");
+    console.error("DOMException: Failed to execute 'importScripts' on 'WorkerGlobalScope': Script at 'blob:https://node-mesh.internal/worker.js' failed to load.");
+    console.error("Uncaught (in promise) WebGLContextLossException: Context lost during shader pipeline linking at GLProgram.link (renderer.ts:402)");
+    console.error("WebSocketConnectionError: Connection to 'wss://telemetry.core.internal:8443/v2/stream' terminated abruptly: [Code 1006] Ping timeout.");
+    console.error("SecurityError: Blocked a frame with origin 'https://auth.subnode.network' from accessing cross-origin frame. Origin mismatch.");
+    console.error("QuotaExceededError: Failed to execute 'put' on 'IDBObjectStore': Origin persistent storage quota exceeded.");
+    console.error("AuthService Exception: Missing secure token. Fragment found in dump: KEY='C'");
+    console.error("AudioContextStateError: The AudioContext was not allowed to start. It must be resumed after a user gesture on the page.");
+    console.error("RangeError: Maximum call stack size exceeded at RecursiveMatrixResolver.traverseNode (matrix_evaluator.js:128:19)");
+    console.error("TypeError: Cannot read properties of undefined (reading 'subtle') at WebCryptoDriver.generateEntropy (crypto_driver.ts:89)");
+    console.error("MediaDeviceError: NotReadableError: Could not start video source. Hardware I/O resource lock failed.");
   }, []);
 
   // Safe fallback if user state is somehow bypass-loaded
