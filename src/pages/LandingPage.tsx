@@ -31,12 +31,12 @@ export const LandingPage: React.FC = () => {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-col select-none"
+            className="flex flex-col items-center gap-2 sm:gap-4 select-none my-2"
           >
-            <GlitchHeading tag="h1" variant="red" className="text-3xl sm:text-5xl md:text-7xl tracking-widest font-black leading-none mb-2">
+            <GlitchHeading tag="h1" variant="red" showShadow={false} className="text-3xl sm:text-5xl md:text-7xl tracking-widest font-black leading-tight">
               HACK WITH INDIA
             </GlitchHeading>
-            <GlitchHeading tag="h1" variant="cyan" className="text-3xl sm:text-5xl md:text-7xl tracking-widest font-black leading-none">
+            <GlitchHeading tag="h1" variant="cyan" showShadow={false} className="text-2xl sm:text-4xl md:text-6xl tracking-widest font-black leading-tight">
               OPERATION HUNT
             </GlitchHeading>
           </motion.div>

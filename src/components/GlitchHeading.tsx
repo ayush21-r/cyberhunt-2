@@ -5,6 +5,7 @@ interface GlitchHeadingProps {
   tag?: 'h1' | 'h2' | 'h3';
   variant?: 'red' | 'cyan' | 'white';
   className?: string;
+  showShadow?: boolean;
 }
 
 export const GlitchHeading: React.FC<GlitchHeadingProps> = ({
@@ -12,6 +13,7 @@ export const GlitchHeading: React.FC<GlitchHeadingProps> = ({
   tag = 'h1',
   variant = 'red',
   className = '',
+  showShadow = false,
 }) => {
   const Tag = tag;
 
@@ -23,30 +25,34 @@ export const GlitchHeading: React.FC<GlitchHeadingProps> = ({
 
   return (
     <div className="relative inline-block select-none">
-      {/* Glitch underlying shadow layer - Red */}
-      <Tag
-        className={`
-          absolute top-0 left-0 w-full h-full text-cyber-red opacity-70 font-orbitron uppercase tracking-wider
-          animate-glitch pointer-events-none select-none
-          ${className}
-        `}
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)', transform: 'translate(-2px, 1px)' }}
-      >
-        {children}
-      </Tag>
+      {showShadow && (
+        <>
+          {/* Glitch underlying shadow layer - Red */}
+          <Tag
+            className={`
+              absolute top-0 left-0 w-full h-full text-cyber-red opacity-50 font-orbitron uppercase tracking-wider
+              animate-glitch pointer-events-none select-none
+              ${className}
+            `}
+            style={{ clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)', transform: 'translate(-2px, 1px)' }}
+          >
+            {children}
+          </Tag>
 
-      {/* Glitch underlying shadow layer - Cyan */}
-      <Tag
-        className={`
-          absolute top-0 left-0 w-full h-full text-cyber-cyan opacity-70 font-orbitron uppercase tracking-wider
-          animate-glitch pointer-events-none select-none
-          ${className}
-        `}
-        style={{ clipPath: 'polygon(0 60%, 100% 60%, 100% 100%, 0 100%)', transform: 'translate(2px, -1px)' }}
-        aria-hidden="true"
-      >
-        {children}
-      </Tag>
+          {/* Glitch underlying shadow layer - Cyan */}
+          <Tag
+            className={`
+              absolute top-0 left-0 w-full h-full text-cyber-cyan opacity-50 font-orbitron uppercase tracking-wider
+              animate-glitch pointer-events-none select-none
+              ${className}
+            `}
+            style={{ clipPath: 'polygon(0 60%, 100% 60%, 100% 100%, 0 100%)', transform: 'translate(2px, -1px)' }}
+            aria-hidden="true"
+          >
+            {children}
+          </Tag>
+        </>
+      )}
 
       {/* Main text layer */}
       <Tag
