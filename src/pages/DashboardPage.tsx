@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ShieldAlert } from 'lucide-react';
+import { ShieldAlert, Download, Lock, FileArchive } from 'lucide-react';
 import { CyberButton } from '../components/CyberButton';
 import { CyberCard } from '../components/CyberCard';
 import PageLayout from '../layouts/PageLayout';
@@ -60,8 +60,8 @@ export const DashboardPage: React.FC = () => {
     <PageLayout>
       <div className="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full font-jetbrains select-none flex justify-center items-center h-full">
 
-        {/* Agent info widget */}
-        <div className="w-full max-w-md flex flex-col gap-6">
+        {/* Agent info & Mission Resource widget */}
+        <div className="w-full max-w-lg flex flex-col gap-6">
           <CyberCard title="AGENT PROFILE SYSTEM" status={user.status} variant="cyan" ariaLabel="Agent Info telemetry widget">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 border border-cyber-cyan bg-cyan-950/20 flex items-center justify-center text-cyber-cyan font-orbitron font-bold text-xl relative clip-corners select-none shadow-[0_0_10px_rgba(0,229,255,0.1)]">
@@ -83,6 +83,47 @@ export const DashboardPage: React.FC = () => {
             </div>
           </CyberCard>
 
+          {/* Encrypted Mission Asset Download */}
+          <CyberCard title="MISSION RESOURCES" status="CLASSIFIED" variant="cyan" ariaLabel="Encrypted Mission Asset Download">
+            <div className="flex flex-col gap-5">
+              <div className="flex items-start gap-3 bg-cyan-950/15 p-3.5 border border-cyber-cyan/20 clip-corners">
+                <div className="p-2 border border-cyber-cyan/40 bg-cyan-950/30 text-cyber-cyan clip-corners mt-0.5">
+                  <FileArchive size={20} aria-hidden="true" />
+                </div>
+                <div className="flex flex-col gap-1 text-left">
+                  <div className="text-xs font-bold text-cyber-cyan uppercase tracking-wider flex items-center gap-1.5">
+                    <Lock size={12} />
+                    <span>ENCRYPTED PAYLOAD DETECTED</span>
+                  </div>
+                  <p className="text-xs text-[#f5f5f5]/80 font-mono leading-relaxed">
+                    ACQUIRE THE COMPRESSED CIPHER CORE DATA PACKAGE. DECRYPT IT 4 TIMES TO REVEAL THE FINAL ANSWER.
+                  </p>
+                </div>
+              </div>
+
+              {/* Payload Specs */}
+              <div className="grid grid-cols-2 gap-2 text-[11px] font-sharetech uppercase tracking-wider text-white/70 bg-black/40 p-2.5 border border-white/10 clip-corners">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-cyber-cyan">// ASSET:</span>
+                  <span className="text-white font-mono">Cipher_Core.rar</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-cyber-cyan">// PROTOCOL:</span>
+                  <span className="text-white font-mono">MULTI-LAYER</span>
+                </div>
+              </div>
+
+              {/* Download Action */}
+              <div className="font-sharetech">
+                <a href="/Cipher_Core.rar" download="Cipher_Core.rar" className="block w-full">
+                  <CyberButton variant="cyan" size="md" className="w-full flex items-center justify-center gap-2">
+                    <Download size={16} aria-hidden="true" />
+                    <span>DOWNLOAD CIPHER_CORE.RAR</span>
+                  </CyberButton>
+                </a>
+              </div>
+            </div>
+          </CyberCard>
         </div>
 
       </div>
