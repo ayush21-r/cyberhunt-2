@@ -96,7 +96,7 @@ export const DashboardPage: React.FC = () => {
                     <span>ENCRYPTED PAYLOAD DETECTED</span>
                   </div>
                   <p className="text-xs text-[#f5f5f5]/80 font-mono leading-relaxed">
-                    ACQUIRE THE COMPRESSED CIPHER CORE DATA PACKAGE. DECRYPT IT 4 TIMES TO REVEAL THE FINAL ANSWER.
+                    DOWNLOAD THE CLASSIFIED CIPHER DATA PACKAGE TO COMMENCE YOUR INVESTIGATION.
                   </p>
                 </div>
               </div>
@@ -108,8 +108,8 @@ export const DashboardPage: React.FC = () => {
                   <span className="text-white font-mono">Cipher_Core.rar</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-cyber-cyan">// PROTOCOL:</span>
-                  <span className="text-white font-mono">MULTI-LAYER</span>
+                  <span className="text-cyber-cyan">// ACCESS:</span>
+                  <span className="text-white font-mono">RESTRICTED</span>
                 </div>
               </div>
 
