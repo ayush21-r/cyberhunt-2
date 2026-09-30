@@ -378,5 +378,55 @@
     "id": "ektaupradeuprade@gmail.com",
     "password": "HWIJDCOEM076",
     "name": "Ekta uprade Uprade"
+  },
+  {
+    "id": "demo01@cyberhunt.io",
+    "password": "DEMO-KEY-001",
+    "name": "Demo Agent Alpha"
+  },
+  {
+    "id": "demo02@cyberhunt.io",
+    "password": "DEMO-KEY-002",
+    "name": "Demo Agent Beta"
+  },
+  {
+    "id": "demo03@cyberhunt.io",
+    "password": "DEMO-KEY-003",
+    "name": "Demo Agent Gamma"
+  },
+  {
+    "id": "demo04@cyberhunt.io",
+    "password": "DEMO-KEY-004",
+    "name": "Demo Agent Delta"
+  },
+  {
+    "id": "demo05@cyberhunt.io",
+    "password": "DEMO-KEY-005",
+    "name": "Demo Agent Epsilon"
+  },
+  {
+    "id": "demo06@cyberhunt.io",
+    "password": "DEMO-KEY-006",
+    "name": "Demo Agent Zeta"
+  },
+  {
+    "id": "demo07@cyberhunt.io",
+    "password": "DEMO-KEY-007",
+    "name": "Demo Agent Eta"
+  },
+  {
+    "id": "demo08@cyberhunt.io",
+    "password": "DEMO-KEY-008",
+    "name": "Demo Agent Theta"
+  },
+  {
+    "id": "demo09@cyberhunt.io",
+    "password": "DEMO-KEY-009",
+    "name": "Demo Agent Iota"
+  },
+  {
+    "id": "demo10@cyberhunt.io",
+    "password": "DEMO-KEY-010",
+    "name": "Demo Agent Kappa"
   }
 ]
