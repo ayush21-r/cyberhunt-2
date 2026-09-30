@@ -146,7 +146,7 @@ export const LoginPage: React.FC = () => {
                 <CyberInput
                   label="AGENT_ID"
                   id="agent-id"
-                  placeholder="e.g. AGENT_ALPHA"
+                  placeholder="e.g. 9876543210"
                   value={agentId}
                   onChange={(e) => setAgentId(e.target.value)}
                   error={errorMsg && errorMsg.includes('AGENT') ? errorMsg : undefined}
