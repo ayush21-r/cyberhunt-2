@@ -13,10 +13,11 @@ export async function authenticateAgent(agentId: string, accessKey: string): Pro
 
   if (user) {
     // Return a fake token and the user object
+    const { password: _, ...safeUser } = user;
     return {
       success: true,
       token: "fake-jwt-token-for-netlify-demo",
-      user: { id: user.id },
+      user: safeUser,
       message: 'AUTHENTICATION SUCCESSFUL'
     };
   } else {
